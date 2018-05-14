@@ -28,7 +28,6 @@ NUM_OF_CYCLE = 50
 
 log_filepath = './log/'
 result_dir = './result/'
-model_file = './result/model012-loss0.017-vloss0.013.h5'
 
 def min_max_normalization(array, axis=None):
     min = array.min(axis=axis, keepdims=True)
