@@ -36,8 +36,6 @@ def validation():
         data = np.array([np.array(predict[-LEN_SEQ:]).reshape(LEN_SEQ, 1)])
 
         pred = model.predict(data)[0]
-        if i < 100:
-            print(pred)
 
         predict = np.append(predict, pred)
 
