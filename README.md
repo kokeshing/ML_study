@@ -48,7 +48,7 @@ LSTMってどうなってんだよ（哲学）と気になる方もいますで�
 
 ## LSTMの学習
 
-必要なライブラリ類をimport
+### 必要なライブラリ類をimport
 
 ```
 import os
@@ -62,7 +62,7 @@ from keras.models import Sequential, Model, load_model
 from keras.layers import Input, Activation, Dropout, Flatten, Dense, LSTM
 ```
 
-定数を定義
+### 定数を定義
 
 ```
 # 隠れ層の数
@@ -83,7 +83,7 @@ NUM_OF_CYCLE = 50
 result_dir = './result/'
 ```
 
-LSTMモデルを構築する関数を定義
+### LSTMモデルを構築する関数を定義
 
 ```
 def create_lstm_model():
@@ -96,7 +96,7 @@ def create_lstm_model():
     return model
 ```
 
-sin関数を一定サイクル生成してそれを分割して訓練データを作成
+### sin関数を一定サイクル生成してそれを分割して訓練データを作成
 
 ```
 def mk_sin_traindata():
@@ -118,9 +118,11 @@ def mk_sin_traindata():
         return x_data, y_data
 ```
 
-callbackの定義（Kerasではepochが終わるごとに関数を呼び出せる）
+### callbackの定義（Kerasではepochが終わるごとに関数を呼び出せる）
 
-- 今回はモデルをepoch毎に自動的に保存してくれる関数
+今回は
+
+- モデルをepoch毎に自動的に保存してくれる関数
 - モデルの精度が伸びなくなったら学習を途中で打ち切る関数
 
 を呼び出す
@@ -141,7 +143,7 @@ es_cb = callbacks.EarlyStopping(
     mode='auto')
 ```
 
-モデルとデータを生成して学習を開始
+### モデルとデータを生成して学習を開始
 
 ```
 np.random.seed(0)
@@ -159,6 +161,8 @@ model.fit(
     validation_split=0.3,
     shuffle=False)
 ```
+
+## 検証
 
 いい感じに学習ができたら
 
@@ -207,7 +211,9 @@ def validation():
 validation()
 ```
 
-めんどくせえよ関数とか定数部分最初に全部コピーさせろやという需要
+## めんどくせえよ関数とか定数部分最初に全部コピーさせろやという需要
+
+### モデル・学習部分
 
 ```
 !mkdir ./result
@@ -297,7 +303,7 @@ model.fit(
     shuffle=False)
 ```
 
-検証用関数の部分
+### 検証用関数の部分
 
 ```
 model_file = "./result/コピーしたファイル名"
@@ -329,6 +335,8 @@ def validation():
 ```
 validation()
 ```
+
+## おまけ
 
 時間余ったらもうちょっと複雑な関数も学習させてみよう（適当）
 
