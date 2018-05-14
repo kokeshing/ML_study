@@ -386,3 +386,14 @@ def validation():
     plt.show
 ```
 
+## 結果
+
+うまくいけばこんな感じな出力が得られるはず
+
+### sin波
+
+![sin_rmsprop](https://user-images.githubusercontent.com/33972190/40005483-fa0be122-57d2-11e8-8884-872595820be5.png)
+
+### 3sin5x-5cos3x
+
+![sincos_cycle200](https://user-images.githubusercontent.com/33972190/40005486-fc66d0c6-57d2-11e8-9198-e035ddeb30c9.png)
